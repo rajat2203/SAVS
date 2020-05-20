@@ -1,0 +1,57 @@
+.array-container {
+    position: relative;
+    bottom:0px;
+}
+  
+.array-bar {
+    width: 4px;
+    display: inline-block; /* arranges the array bars in horizontal way*/
+    margin: 0 2px; /*Top,Bottom -> 0px Left,Right -> 1px*/
+}
+
+
+.main_algo_head{
+    color: rgb(248, 238, 225);
+    padding-left: 63px;
+    padding-top: 20px;
+}
+
+.main_button {
+    background-color: rgb(179, 182, 22); 
+    border: none;
+    color: #EAF0F1;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    outline: 0;
+    display: block; /* Make the buttons appear below each other */
+    font: 15px "Century Gothic", Futura, sans-serif;
+    margin-left: 52px;
+}
+
+
+.main_button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+.buttons  {
+    background-color: #47535E; 
+    border: none;
+    color: #EAF0F1;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    outline: 0;
+    display: block; /* Make the buttons appear below each other */
+    font: 15px "Century Gothic", Futura, sans-serif;
+    width: 130px;
+    margin-left: 60px;
+}
+.buttons :not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+.buttons:hover {
+    color: rgb(52, 209, 78);
+    font: 17px "Century Gothic", Futura, sans-serif;
+}
