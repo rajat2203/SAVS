@@ -12,10 +12,14 @@ import { getCocktailSortAnimations } from '../SortingAlgorithms/CocktailSort';
 import { getCombSortAnimations } from '../SortingAlgorithms/CombSort';
 import { getOddEvenSortSortAnimations } from '../SortingAlgorithms/OddEvenSort';
 import { getHeapSortAnimations } from '../SortingAlgorithms/HeapSort';
+import { getBitonicSortAnimations } from '../SortingAlgorithms/BitonicSort';
+import { getTimSortAnimations } from '../SortingAlgorithms/TimSort';
+import { getBucketSortAnimations } from '../SortingAlgorithms/BucketSort';
 
 let WINDOW_WIDTH = window.innerWidth;
 let WINDOW_HEIGHT = window.innerHeight;
 // parseInt convert string to integer, just like to_string();
+// Total array bars to display
 let NUMBER_OF_ARRAY_BARS = parseInt((WINDOW_WIDTH - 300) / 9);
 
 function reportWindowSize() {
@@ -24,36 +28,48 @@ function reportWindowSize() {
     NUMBER_OF_ARRAY_BARS = parseInt((WINDOW_WIDTH - 300) / 9);
 }
 //Whenever widows size changes, this function is called
+// and value to WINDOWS (width,height) will change
 window.onresize = reportWindowSize;
 
-
+// primary colour == default colour of array bars
 const PRIMARY_COLOR = '#FDCA40';
+// secondary color == doing comparisions
 const SECONDARY_COLOR = 'red';
-const TERNARY_COLOR = 'green';
+// ternary colour == final colour of sorted array bars
+const TERNARY_COLOR = '#7fff00';
+// animation speed
 const ANIMATION_SPEED_MS = 0.5;
 
-const DISABLED_BUTTON = "Disabled"
+// showing on hover text on buttons
 const ENABLED_BUTTON = {
     nlogn: "O(NlogN)",
     nSquare: "O(N^2)",
     n: "O(N)"
 }
+const DISABLED_BUTTON = "Disabled"
 
+// Generate random number b/w 2 limits
 function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 //extends here means inheritance just like c++
+// React.component to use react features
 class SortingVisualizer extends React.Component {
     constructor(props) {
         // This is constructor, which initializes empty array
         super(props);
         this.state = {
+            // Initializing empty array and later filled by calling reset function
+            // after this array is passed to sotrting algorithm.js file 
+            // where animation array is returned
+            // which contain the 2 index to change colour
             array: []
         };
     }
 
     componentDidMount() {
+        // Reset array
         this.resetArray();
     }
     // New array with random values
@@ -210,10 +226,9 @@ class SortingVisualizer extends React.Component {
 
     }
 
-    //Sorting Algorithms
     bubbleSort() {
         this.disableSortButtons();
-        const [animations, sortArray] = getBubbleSortAnimations(this.state.array);
+        const [animations] = getBubbleSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
             const arrayBars = document.getElementsByClassName('array-bar');
             let [b1Index, b2Index] = animations[i];
@@ -642,6 +657,14 @@ class SortingVisualizer extends React.Component {
         const TOTAL_BUTTONS = 1 + SORT_BUTTONS;
         return (
             <>
+                <span><div class="square" style={{ position: 'absolute', right: `1000px` }}></div> <div class="squareone" style={{ position: 'absolute', right: `840px` }}>Initial Unsorted Array</div> </span>
+
+                <span><div class="square1" style={{ position: 'absolute', right: `750px` }}></div> <div class="squaretwo" style={{ position: 'absolute', right: `615px` }}>Final Sorted Array</div> </span>
+
+                <span><div class="square2" style={{ position: 'absolute', right: `525px` }}></div> <div class="squarethree" style={{ position: 'absolute', right: `310px` }}>Comparing Two Index Values</div> </span>
+
+                <span><div class="square3" style={{ position: 'absolute', right: `220px` }}>+</div> <div class="squarefour" style={{ position: 'absolute', right: `100px` }}>Random Values</div> </span>
+
                 <div className="array-container" style={{ position: 'absolute', right: `20px` }}>
                     {array.map((value, idx) => (
                         <div
@@ -656,9 +679,8 @@ class SortingVisualizer extends React.Component {
                 </div>
 
                 <div  >
-
                     <button className="main_button" title="Generates a new random array" style={{ position: 'relative', top: `${0 * (WINDOW_HEIGHT - 20) / TOTAL_BUTTONS}px` }} onClick={() => this.resetArray()}>
-                        Generate New Array
+                        <span className="plussign"> + </span>New Array
                     </button>
 
                     <h2 className="main_algo_head">Algorithms</h2>

@@ -1,3 +1,72 @@
+.squareone{
+    color: white;
+}
+.square {
+  height: 25px;
+  width: 25px;
+  background-color: #FDCA40;
+  /* 7fff00 */
+}
+.square:hover {
+  height: 30px;
+  width: 30px;
+  background-color: #FDCA40;
+  /* 7fff00 */
+}
+.squaretwo{
+    color: white;
+}
+.square1{
+    height: 25px;
+  width: 25px;
+  background-color: #7fff00;
+  /* 7fff00 */
+}
+.square1:hover{
+  height: 30px;
+  width: 30px;
+  background-color: #7fff00;
+  /* 7fff00 */
+}
+.squarethree{
+    color: white;
+}
+.square2{
+    height: 25px;
+  width: 25px;
+  background-color: red;
+}
+.square2:hover{
+  height: 30px;
+  width: 30px;
+  background-color: red;
+  /* 7fff00 */
+}
+.squarefour{
+    color: white;
+}
+.square3{
+    font-size: 18px;
+    color: white;
+    text-align: center;
+ height: 25px;
+  width: 25px;
+  background-color: #F79824;
+}
+.square3:hover{
+color: white;
+     text-align: center;
+  height: 30px;
+  width: 30px;
+  background-color: #F79824;
+  /* 7fff00 */
+}
+
+.plussign{
+    font-size: 25px;
+}
+
+
 .array-container {
     position: relative;
     bottom:0px;
@@ -9,7 +78,6 @@
     display: inline-block; /* arranges the array bars in horizontal way*/
     margin: 0 2px; /*Top,Bottom -> 0px Left,Right -> 1px*/
 }
-
 
 .main_algo_head{
     color: rgb(248, 238, 225);
@@ -26,7 +94,7 @@
     outline: 0;
     display: block; /* Make the buttons appear below each other */
     font: 15px "Century Gothic", Futura, sans-serif;
-    margin-left: 52px;
+    margin-left: 70px;
 }
 
 
@@ -49,5 +117,9 @@
 }
 .buttons :not(:last-child) {
     border-bottom: none; /* Prevent double borders */
+}
+
+.buttons:hover{
+    color: rgb(255, 123, 15);
 }
 
