@@ -4,7 +4,6 @@ https://www.youtube.com/playlist?list=PL16oas3IJsiTAKERyg3i6ViPwbpcEIFJB
 ![](./one.png)
 
 ## Comparision Process
-### 2 indexes
 ![](./two.png)
 
 ## Final Array
