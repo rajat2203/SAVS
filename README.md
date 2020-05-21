@@ -1,3 +1,4 @@
+https://www.youtube.com/playlist?list=PL16oas3IJsiTAKERyg3i6ViPwbpcEIFJB
 ## Initial Array
 ### Initialisation With random values
 ![](./one.png)
