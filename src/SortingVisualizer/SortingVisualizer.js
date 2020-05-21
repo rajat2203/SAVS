@@ -38,7 +38,7 @@ const SECONDARY_COLOR = 'red';
 // ternary colour == final colour of sorted array bars
 const TERNARY_COLOR = '#7fff00';
 // animation speed
-const ANIMATION_SPEED_MS = 0.5;
+const ANIMATION_SPEED_MS = 4;
 
 // showing on hover text on buttons
 const ENABLED_BUTTON = {
