@@ -4,7 +4,8 @@
 }
   
 .array-bar {
-    width: 4px;
+    background-color: #FDCA40;
+    width: 5px;
     display: inline-block; /* arranges the array bars in horizontal way*/
     margin: 0 2px; /*Top,Bottom -> 0px Left,Right -> 1px*/
 }
@@ -13,11 +14,10 @@
 .main_algo_head{
     color: rgb(248, 238, 225);
     padding-left: 63px;
-    padding-top: 20px;
 }
 
 .main_button {
-    background-color: rgb(179, 182, 22); 
+    background-color: #F79824; 
     border: none;
     color: #EAF0F1;
     text-align: center;
@@ -35,7 +35,7 @@
 }
 
 .buttons  {
-    background-color: #47535E; 
+    background-color: #9E2A2B; 
     border: none;
     color: #EAF0F1;
     text-align: center;
@@ -51,7 +51,3 @@
     border-bottom: none; /* Prevent double borders */
 }
 
-.buttons:hover {
-    color: rgb(52, 209, 78);
-    font: 17px "Century Gothic", Futura, sans-serif;
-}

@@ -1,7 +1,7 @@
-export function getBubbleSortAnimations(array) {
+export function getCombSortAnimations(array) {
     let animations = [];
     let auxillaryArray = array.slice();
-    bubbleSort(auxillaryArray, animations);
+    combSort(auxillaryArray, animations);
     const javaScriptSortedArray = array.slice().sort((a, b) => a - b);
     array = auxillaryArray;
     return [animations, array];
@@ -15,16 +15,34 @@ function finalarray(auxillaryArray, animations) {
     return [auxillaryArray, animations];
 }
 
-function bubbleSort(auxillaryArray, animations) {
-    const N = auxillaryArray.length;
-    for (let i = 0; i < N - 1; i++) {
-        for (let j = 0; j < N - i - 1; j++) {
-            animations.push([j, j + 1]);
-            animations.push([j, j + 1]);
-            if (auxillaryArray[j] > auxillaryArray[j + 1]) {
-                animations.push([j, auxillaryArray[j + 1]]);
-                animations.push([j + 1, auxillaryArray[j]]);
-                swap(auxillaryArray, j, j + 1);
+function getNextGap(gap) {
+    gap = gap * 10;
+    gap = Math.floor(gap / 13);
+
+    if (gap < 1) {
+        return 1;
+    }
+
+    return gap;
+}
+
+function combSort(auxillaryArray, animations) {
+    let N = auxillaryArray.length;
+    let gap = N;
+    let swapped = true;
+
+    while (gap != 1 || swapped == true) {
+        gap = getNextGap(gap);
+        swapped = false;
+
+        for (let i = 0; i < N - gap; i++) {
+            animations.push([i, i + gap]);
+            animations.push([i, i + gap]);
+            if (auxillaryArray[i] > auxillaryArray[i + gap]) {
+                animations.push([i, auxillaryArray[i + gap]]);
+                animations.push([i + gap, auxillaryArray[i]]);
+                swap(auxillaryArray, i, i + gap);
+                swapped = true;
             }
             else {
                 animations.push([-1, -1]);
@@ -32,6 +50,7 @@ function bubbleSort(auxillaryArray, animations) {
             }
         }
     }
+
 
     finalarray(auxillaryArray, animations);
 }

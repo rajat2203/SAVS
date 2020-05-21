@@ -1,7 +1,7 @@
-export function getBubbleSortAnimations(array) {
+export function getSelectionSortAnimations(array) {
     let animations = [];
     let auxillaryArray = array.slice();
-    bubbleSort(auxillaryArray, animations);
+    selectionSort(auxillaryArray, animations);
     const javaScriptSortedArray = array.slice().sort((a, b) => a - b);
     array = auxillaryArray;
     return [animations, array];
@@ -15,22 +15,21 @@ function finalarray(auxillaryArray, animations) {
     return [auxillaryArray, animations];
 }
 
-function bubbleSort(auxillaryArray, animations) {
+function selectionSort(auxillaryArray, animations) {
     const N = auxillaryArray.length;
     for (let i = 0; i < N - 1; i++) {
-        for (let j = 0; j < N - i - 1; j++) {
-            animations.push([j, j + 1]);
-            animations.push([j, j + 1]);
-            if (auxillaryArray[j] > auxillaryArray[j + 1]) {
-                animations.push([j, auxillaryArray[j + 1]]);
-                animations.push([j + 1, auxillaryArray[j]]);
-                swap(auxillaryArray, j, j + 1);
-            }
-            else {
-                animations.push([-1, -1]);
-                animations.push([-1, -1]);
+        let minIndex = i;
+        for (let j = i + 1; j < N; j++) {
+            animations.push(["comparision1", j, minIndex]);
+            animations.push(["comparision2", j, minIndex]);
+            if (auxillaryArray[j] < auxillaryArray[minIndex]) {
+                minIndex = j;
             }
         }
+        animations.push(["swap", minIndex, auxillaryArray[i]]);
+        animations.push(["swap", i, auxillaryArray[minIndex]]);
+
+        swap(auxillaryArray, minIndex, i);
     }
 
     finalarray(auxillaryArray, animations);
