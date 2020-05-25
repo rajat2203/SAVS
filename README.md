@@ -1,5 +1,4 @@
 https://www.youtube.com/playlist?list=PL16oas3IJsiTAKERyg3i6ViPwbpcEIFJB
-[![GitHub issues](https://img.shields.io/github/issues/rajat2203/SAVS)](https://github.com/rajat2203/SAVS/issues)
 ## Initial Array
 > Initialisation With random values
 ![](./one.png)
